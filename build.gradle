@@ -1,0 +1,49 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "$kotlin_version"
+    id 'application'
+    id "com.diffplug.gradle.spotless" version "$spotless_version"
+}
+
+group 'dev.amadeu'
+version '0.0.1'
+mainClassName = "io.ktor.server.netty.EngineMain"
+
+sourceSets {
+    main.kotlin.srcDirs = main.java.srcDirs = ['src']
+    test.kotlin.srcDirs = test.java.srcDirs = ['test']
+    main.resources.srcDirs = ['resources']
+    test.resources.srcDirs = ['testresources']
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven { url 'https://kotlin.bintray.com/ktor' }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "io.ktor:ktor-server-netty:$ktor_version"
+    compile "ch.qos.logback:logback-classic:$logback_version"
+    compile "io.ktor:ktor-server-core:$ktor_version"
+    compile "io.ktor:ktor-auth:$ktor_version"
+    compile "io.ktor:ktor-auth-jwt:$ktor_version"
+    compile "io.ktor:ktor-gson:$ktor_version"
+    compile "io.ktor:ktor-server-host-common:$ktor_version"
+    compile "io.ktor:ktor-client-core:$ktor_version"
+    compile "io.ktor:ktor-client-core-jvm:$ktor_version"
+    compile "io.ktor:ktor-client-apache:$ktor_version"
+    compile "io.ktor:ktor-jackson:$ktor_version"
+    testCompile "io.ktor:ktor-server-tests:$ktor_version"
+}
+
+spotless {
+    kotlin {
+        ktlint("$ktlint_version")
+//        ktlint().userData(['indent_size': '2', 'continuation_indent_size' : '2'])
+
+        licenseHeader '/* Licensed under MIT */'
+    }
+}
+
+

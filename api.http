@@ -1,0 +1,218 @@
+# Conduit API
+
+###
+
+# Existing user login
+# 
+# Login for existing user
+POST {{host}}/users/login
+Content-Type: application/json
+
+{
+    "body": {
+        "user": {
+            "email": "body.user.email",
+            "password": "body.user.password"
+        }
+    }
+}
+
+> {%
+client.assert(typeof response.body.user.token !== "undefined", "No token returned");
+client.global.set("auth_token", response.body.user.token);
+%}
+
+###
+
+# Register a new user
+# 
+# Register a new user
+POST {{host}}/users
+Content-Type: application/json
+
+{
+    "body": {
+        "user": {
+            "username": "body.user.username",
+            "email": "body.user.email",
+            "password": "body.user.password"
+        }
+    }
+}
+
+###
+
+# Get current user
+# 
+# Gets the currently logged-in user
+GET {{host}}/users
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Update current user
+# 
+# Updated user information for current user
+PUT {{host}}/users
+Authorization: Bearer {{ auth_token }}
+Content-Type: application/json
+
+{
+    "body": {
+        "user": {
+            "email": "body.user.email",
+            "token": "body.user.token",
+            "username": "body.user.username",
+            "bio": "body.user.bio",
+            "image": "body.user.image"
+        }
+    }
+}
+
+###
+
+# Get a profile
+# 
+# Get a profile of a user of the system. Auth is optional
+GET {{host}}/profiles/{{param_username}}
+
+###
+
+# Follow a user
+# 
+# Follow a user by username
+POST {{host}}/profiles/{{param_username}}/follow
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Unfollow a user
+# 
+# Unfollow a user by username
+DELETE {{host}}/profiles/{{param_username}}/follow
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Get recent articles from users you follow
+# 
+# Get most recent articles from users you follow. Use query parameters to limit. Auth is required
+GET {{host}}/articles/feed?limit=20&offset=0
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Get recent articles globally
+# 
+# Get most recent articles globally. Use query parameters to filter results. Auth is optional
+GET {{host}}/articles?limit=20&offset=0
+
+###
+
+# Create an article
+# 
+# Create an article. Auth is required
+POST {{host}}/articles
+Authorization: Bearer {{ auth_token }}
+Content-Type: application/json
+
+{
+    "article": {
+        "article": {
+            "title": "article.article.title",
+            "description": "article.article.description",
+            "body": "article.article.body",
+            "tagList": []
+        }
+    }
+}
+
+###
+
+# Get an article
+# 
+# Get an article. Auth not required
+GET {{host}}/articles/{{param_slug}}
+
+###
+
+# Update an article
+# 
+# Update an article. Auth is required
+PUT {{host}}/articles/{{param_slug}}
+Authorization: Bearer {{ auth_token }}
+Content-Type: application/json
+
+{
+    "article": {
+        "article": {
+            "title": "article.article.title",
+            "description": "article.article.description",
+            "body": "article.article.body"
+        }
+    }
+}
+
+###
+
+# Delete an article
+# 
+# Delete an article. Auth is required
+DELETE {{host}}/articles/{{param_slug}}
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Get comments for an article
+# 
+# Get the comments for an article. Auth is optional
+GET {{host}}/articles/{{param_slug}}/comments
+
+###
+
+# Create a comment for an article
+# 
+# Create a comment for an article. Auth is required
+POST {{host}}/articles/{{param_slug}}/comments
+Authorization: Bearer {{ auth_token }}
+Content-Type: application/json
+
+{
+    "comment": {
+        "comment": {
+            "body": "comment.comment.body"
+        }
+    }
+}
+
+###
+
+# Delete a comment for an article
+# 
+# Delete a comment for an article. Auth is required
+DELETE {{host}}/articles/{{param_slug}}/comments/{{param_id}}
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Favorite an article
+# 
+# Favorite an article. Auth is required
+POST {{host}}/articles/{{param_slug}}/favorite
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Unfavorite an article
+# 
+# Unfavorite an article. Auth is required
+DELETE {{host}}/articles/{{param_slug}}/favorite
+Authorization: Bearer {{ auth_token }}
+
+###
+
+# Get tags
+# 
+# Get tags. Auth not required
+GET {{host}}/tags
+
