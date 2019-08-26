@@ -1,3 +1,4 @@
+/* Licensed under MIT */
 package dev.amadeu
 
 import io.ktor.application.*
@@ -10,7 +11,7 @@ import io.ktor.http.*
 
 /**
  * Conduit API
- * 
+ *
  * Conduit API
  */
 class ConduitAPIServer(val myjwt: MyJWT) {
@@ -19,7 +20,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
      */
     fun Routing.registerUserAndAuthentication() {
         post("/users/login") {
-            val body = call.getBodyParam<LoginUserRequest>("body") 
+            val body = call.getBodyParam<LoginUserRequest>("body")
 
             if (false) httpException(HttpStatusCode.Unauthorized)
             if (false) httpException(422, "Unexpected error")
@@ -41,7 +42,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
         }
 
         post("/users") {
-            val body = call.getBodyParam<NewUserRequest>("body") 
+            val body = call.getBodyParam<NewUserRequest>("body")
 
             if (false) httpException(HttpStatusCode.Created)
             if (false) httpException(422, "Unexpected error")
@@ -68,7 +69,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             put("/users") {
-                val body = call.getBodyParam<UpdateUserRequest>("body") 
+                val body = call.getBodyParam<UpdateUserRequest>("body")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -91,7 +92,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
      */
     fun Routing.registerProfile() {
         get("/profiles/{username}") {
-            val username = call.getPath<String>("username") 
+            val username = call.getPath<String>("username")
 
             if (false) httpException(HttpStatusCode.Unauthorized)
             if (false) httpException(422, "Unexpected error")
@@ -108,7 +109,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             post("/profiles/{username}/follow") {
-                val username = call.getPath<String>("username") 
+                val username = call.getPath<String>("username")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -126,7 +127,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             delete("/profiles/{username}/follow") {
-                val username = call.getPath<String>("username") 
+                val username = call.getPath<String>("username")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -180,7 +181,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             post("/articles") {
-                val article = call.getBodyParam<NewArticleRequest>("article") 
+                val article = call.getBodyParam<NewArticleRequest>("article")
 
                 if (false) httpException(HttpStatusCode.Created)
                 if (false) httpException(HttpStatusCode.Unauthorized)
@@ -191,7 +192,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
         }
 
         get("/articles/{slug}") {
-            val slug = call.getPath<String>("slug") 
+            val slug = call.getPath<String>("slug")
 
             if (false) httpException(422, "Unexpected error")
 
@@ -218,8 +219,8 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             put("/articles/{slug}") {
-                val slug = call.getPath<String>("slug") 
-                val article = call.getBodyParam<UpdateArticleRequest>("article") 
+                val slug = call.getPath<String>("slug")
+                val article = call.getBodyParam<UpdateArticleRequest>("article")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -248,7 +249,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             delete("/articles/{slug}") {
-                val slug = call.getPath<String>("slug") 
+                val slug = call.getPath<String>("slug")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -263,7 +264,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
      */
     fun Routing.registerComments() {
         get("/articles/{slug}/comments") {
-            val slug = call.getPath<String>("slug") 
+            val slug = call.getPath<String>("slug")
 
             if (false) httpException(HttpStatusCode.Unauthorized)
             if (false) httpException(422, "Unexpected error")
@@ -275,8 +276,8 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             post("/articles/{slug}/comments") {
-                val slug = call.getPath<String>("slug") 
-                val comment = call.getBodyParam<NewCommentRequest>("comment") 
+                val slug = call.getPath<String>("slug")
+                val comment = call.getBodyParam<NewCommentRequest>("comment")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -300,8 +301,8 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             delete("/articles/{slug}/comments/{id}") {
-                val slug = call.getPath<String>("slug") 
-                val id = call.getPath<Int>("id") 
+                val slug = call.getPath<String>("slug")
+                val id = call.getPath<Int>("id")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -317,7 +318,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
     fun Routing.registerFavorites() {
         authenticate("Token") {
             post("/articles/{slug}/favorite") {
-                val slug = call.getPath<String>("slug") 
+                val slug = call.getPath<String>("slug")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")
@@ -346,7 +347,7 @@ class ConduitAPIServer(val myjwt: MyJWT) {
 
         authenticate("Token") {
             delete("/articles/{slug}/favorite") {
-                val slug = call.getPath<String>("slug") 
+                val slug = call.getPath<String>("slug")
 
                 if (false) httpException(HttpStatusCode.Unauthorized)
                 if (false) httpException(422, "Unexpected error")

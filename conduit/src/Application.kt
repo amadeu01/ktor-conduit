@@ -1,3 +1,4 @@
+/* Licensed under MIT */
 package dev.amadeu
 
 import io.ktor.application.*
@@ -24,7 +25,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    val myjwt = MyJWT(secret = environment.config.property("jwt.secret").getString())
+    var myjwt = MyJWT(secret = environment.config.property("jwt.secret").getString())
 
     install(CORS) {
         method(HttpMethod.Options)
@@ -56,7 +57,7 @@ fun Application.module(testing: Boolean = false) {
         }
     }
 
-    val client = HttpClient(Apache) {
+    var client = HttpClient(Apache) {
     }
 
     routing {
@@ -76,7 +77,7 @@ fun Application.module(testing: Boolean = false) {
                 call.respond(HttpStatusCode.Forbidden)
             }
 
-            exception<HttpException> {  cause ->
+            exception<HttpException> { cause ->
                 call.respond(cause.code, cause.description)
             }
         }
@@ -99,8 +100,7 @@ class AuthenticationException : RuntimeException()
 class AuthorizationException : RuntimeException()
 
 open class MyJWT(val secret: String) {
-    private val algorithm = Algorithm.HMAC256(secret)
+    private var algorithm = Algorithm.HMAC256(secret)
     val verifier = JWT.require(algorithm).build()
     fun sign(name: String): String = JWT.create().withClaim("name", name).sign(algorithm)
 }
-

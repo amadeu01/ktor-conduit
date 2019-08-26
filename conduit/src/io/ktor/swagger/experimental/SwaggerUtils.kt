@@ -1,3 +1,4 @@
+/* Licensed under MIT */
 package io.ktor.swagger.experimental
 
 import com.fasterxml.jackson.module.kotlin.*
@@ -32,11 +33,9 @@ inline fun <T> T.checkRequest(cond: Boolean, callback: () -> String) {
     if (!cond) httpException(HttpStatusCode.BadRequest, callback())
 }
 
-interface SwaggerBaseApi {
-}
+interface SwaggerBaseApi
 
-interface SwaggerBaseServer {
-}
+interface SwaggerBaseServer
 
 class ApplicationCallContext(val call: ApplicationCall) : CoroutineContext.Element {
     object KEY : CoroutineContext.Key<ApplicationCallContext>
@@ -57,8 +56,8 @@ annotation class Path(val name: String) // Reused
 annotation class FormData(val name: String)
 annotation class Auth(vararg val auths: String)
 
-//interface FeatureClass
-//annotation class Feature(val clazz: KClass<out FeatureClass>)
+// interface FeatureClass
+// annotation class Feature(val clazz: KClass<out FeatureClass>)
 
 inline fun <reified T : SwaggerBaseApi> createClient(client: HttpClient, rootUrl: String): T =
         createClient(T::class.java, client, rootUrl)
@@ -72,7 +71,7 @@ fun <T : SwaggerBaseApi> createClient(clazz: Class<T>, client: HttpClient, rootU
         val info = apiClass.getInfo(method) ?: error("Can't find method $method")
         val rparams = info.params.zip(args.slice(0 until info.params.size)).map { ApiClass.ApiParamInfoValue<Any?>(it.first as ApiClass.ApiParamInfo<Any?>, it.second) }.associateBy { it.name }
 
-        //val params = method.parameters
+        // val params = method.parameters
         val cont = args.lastOrNull() as? Continuation<Any>?
                 ?: throw RuntimeException("Just implemented suspend functions")
 
@@ -160,7 +159,6 @@ fun Route.authenticateIfNotEmpty(configurations: List<String>, optional: Boolean
     }
 }
 
-
 class ApiClass(val clazz: Class<*>, val methods: List<ApiMethodInfo>) {
     val methodsBySignature = methods.associateBy { it.methodSignature }
 
@@ -172,7 +170,7 @@ class ApiClass(val clazz: Class<*>, val methods: List<ApiMethodInfo>) {
             for (method in clazz.methods) {
                 val path = method.getAnnotationInAncestors(Path::class.java)?.name
                 val httpMethod = method.getAnnotationInAncestors(Method::class.java)?.method ?: "GET"
-                //println("METHOD: $method, $path")
+                // println("METHOD: $method, $path")
                 if (path != null) {
                     val params = arrayListOf<ApiParamInfo<*>>()
                     for ((ptype, annotations) in method.parameterTypes.zip(method.parameterAnnotationsInAncestors)) {
@@ -195,13 +193,13 @@ class ApiClass(val clazz: Class<*>, val methods: List<ApiMethodInfo>) {
                         }
                         val rname = body ?: query ?: formData ?: header ?: ppath ?: "unknown"
 
-                        //println("   - $ptype, ${annotations.toList()}")
+                        // println("   - $ptype, ${annotations.toList()}")
 
                         params += ApiParamInfo(source, rname, ptype)
                     }
 
-                    //println("METHOD: $instance, $method, $httpMethod, $path")
-                    //for (param in params) println("  - $param")
+                    // println("METHOD: $instance, $method, $httpMethod, $path")
+                    // for (param in params) println("  - $param")
 
                     val auths = method.getAnnotationInAncestors(Auth::class.java)?.auths?.toList() ?: listOf()
 
@@ -259,7 +257,7 @@ object Json {
     fun <T> stringify(value: T): String = objectMapper.writeValueAsString(value)
 }
 
-//inline fun <reified T> ApplicationCall.getTyped(source: String, name: String): T =
+// inline fun <reified T> ApplicationCall.getTyped(source: String, name: String): T =
 //        objectMapper.convertValue(getRaw(source, name), T::class.java)
 suspend fun <T> ApplicationCall.getTyped(source: Source, name: String, clazz: Class<T>): T {
     return Json.convert(getRaw(source, name), clazz)
@@ -293,9 +291,9 @@ private suspend fun ApplicationCall.getCachedUntypedBody(): Map<String, Any?> {
     } as Map<String, Any?>
 }
 
-///////////////////////////////////////////////////
+// /////////////////////////////////////////////////
 // Reflection Tools
-///////////////////////////////////////////////////
+// /////////////////////////////////////////////////
 
 val java.lang.Class<*>.allTypes: Set<Class<*>>
     get() {

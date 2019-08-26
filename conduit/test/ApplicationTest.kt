@@ -1,3 +1,4 @@
+/* Licensed under MIT */
 package dev.amadeu
 
 import io.ktor.application.*

@@ -1,3 +1,4 @@
+/* Licensed under MIT */
 package dev.amadeu
 
 import io.ktor.client.*
@@ -5,17 +6,17 @@ import io.ktor.client.request.*
 
 /**
  * Conduit API Client
- * 
+ *
  * Conduit API
  */
 open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpClient()) {
     /**
      * Existing user login
-     * 
+     *
      * Login for existing user
-     * 
+     *
      * @param body Credentials to use
-     * 
+     *
      * @return OK
      */
     suspend fun login(
@@ -30,11 +31,11 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Register a new user
-     * 
+     *
      * Register a new user
-     * 
+     *
      * @param body Details of the new user to register
-     * 
+     *
      * @return OK
      */
     suspend fun createUser(
@@ -49,24 +50,23 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Get current user
-     * 
+     *
      * Gets the currently logged-in user
-     * 
+     *
      * @return OK
      */
-    suspend fun getCurrentUser(
-    ): UserResponse {
+    suspend fun getCurrentUser(): UserResponse {
         return client.get<UserResponse>("$endpoint/users") {
         }
     }
 
     /**
      * Update current user
-     * 
+     *
      * Updated user information for current user
-     * 
+     *
      * @param body User details to update. At least **one** field is required.
-     * 
+     *
      * @return OK
      */
     suspend fun updateCurrentUser(
@@ -81,11 +81,11 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Get a profile
-     * 
+     *
      * Get a profile of a user of the system. Auth is optional
-     * 
+     *
      * @param username Username of the profile to get
-     * 
+     *
      * @return OK
      */
     suspend fun getProfileByUsername(
@@ -97,11 +97,11 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Follow a user
-     * 
+     *
      * Follow a user by username
-     * 
+     *
      * @param username Username of the profile you want to follow
-     * 
+     *
      * @return OK
      */
     suspend fun followUserByUsername(
@@ -113,11 +113,11 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Unfollow a user
-     * 
+     *
      * Unfollow a user by username
-     * 
+     *
      * @param username Username of the profile you want to unfollow
-     * 
+     *
      * @return OK
      */
     suspend fun unfollowUserByUsername(
@@ -129,12 +129,12 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Get recent articles from users you follow
-     * 
+     *
      * Get most recent articles from users you follow. Use query parameters to limit. Auth is required
-     * 
+     *
      * @param limit Limit number of articles returned (default is 20)
      * @param offset Offset/skip number of articles (default is 0)
-     * 
+     *
      * @return OK
      */
     suspend fun getArticlesFeed(
@@ -153,15 +153,15 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Get recent articles globally
-     * 
+     *
      * Get most recent articles globally. Use query parameters to filter results. Auth is optional
-     * 
+     *
      * @param tag Filter by tag
      * @param author Filter by author (username)
      * @param favorited Filter by favorites of a user (username)
      * @param limit Limit number of articles returned (default is 20)
      * @param offset Offset/skip number of articles (default is 0)
-     * 
+     *
      * @return OK
      */
     suspend fun getArticles(
@@ -186,11 +186,11 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Create an article
-     * 
+     *
      * Create an article. Auth is required
-     * 
+     *
      * @param article Article to create
-     * 
+     *
      * @return OK
      */
     suspend fun createArticle(
@@ -205,11 +205,11 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Get an article
-     * 
+     *
      * Get an article. Auth not required
-     * 
+     *
      * @param slug Slug of the article to get
-     * 
+     *
      * @return OK
      */
     suspend fun getArticle(
@@ -221,12 +221,12 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Update an article
-     * 
+     *
      * Update an article. Auth is required
-     * 
+     *
      * @param slug Slug of the article to update
      * @param article Article to update
-     * 
+     *
      * @return OK
      */
     suspend fun updateArticle(
@@ -242,27 +242,27 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Delete an article
-     * 
+     *
      * Delete an article. Auth is required
-     * 
+     *
      * @param slug Slug of the article to delete
-     * 
+     *
      * @return OK
      */
     suspend fun deleteArticle(
         slug: String // PATH
-    ): Unit {
+    ) {
         return client.delete<Unit>("$endpoint/articles/$slug") {
         }
     }
 
     /**
      * Get comments for an article
-     * 
+     *
      * Get the comments for an article. Auth is optional
-     * 
+     *
      * @param slug Slug of the article that you want to get comments for
-     * 
+     *
      * @return OK
      */
     suspend fun getArticleComments(
@@ -274,12 +274,12 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Create a comment for an article
-     * 
+     *
      * Create a comment for an article. Auth is required
-     * 
+     *
      * @param slug Slug of the article that you want to create a comment for
      * @param comment Comment you want to create
-     * 
+     *
      * @return OK
      */
     suspend fun createArticleComment(
@@ -295,29 +295,29 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Delete a comment for an article
-     * 
+     *
      * Delete a comment for an article. Auth is required
-     * 
+     *
      * @param slug Slug of the article that you want to delete a comment for
      * @param id ID of the comment you want to delete
-     * 
+     *
      * @return OK
      */
     suspend fun deleteArticleComment(
         slug: String, // PATH
         id: Int // PATH
-    ): Unit {
+    ) {
         return client.delete<Unit>("$endpoint/articles/$slug/comments/$id") {
         }
     }
 
     /**
      * Favorite an article
-     * 
+     *
      * Favorite an article. Auth is required
-     * 
+     *
      * @param slug Slug of the article that you want to favorite
-     * 
+     *
      * @return OK
      */
     suspend fun createArticleFavorite(
@@ -329,11 +329,11 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Unfavorite an article
-     * 
+     *
      * Unfavorite an article. Auth is required
-     * 
+     *
      * @param slug Slug of the article that you want to unfavorite
-     * 
+     *
      * @return OK
      */
     suspend fun deleteArticleFavorite(
@@ -345,13 +345,12 @@ open class ConduitAPIClient(val endpoint: String, val client: HttpClient = HttpC
 
     /**
      * Get tags
-     * 
+     *
      * Get tags. Auth not required
-     * 
+     *
      * @return OK
      */
-    suspend fun getTags(
-    ): TagsResponse {
+    suspend fun getTags(): TagsResponse {
         return client.get<TagsResponse>("$endpoint/tags") {
         }
     }

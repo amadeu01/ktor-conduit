@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="conduit-ktor.conduit.main" target="1.8" />
+      <module name="conduit-ktor.conduit.test" target="1.8" />
+      <module name="conduit-ktor.custom-ktlint-rules.main" target="1.8" />
+      <module name="conduit-ktor.custom-ktlint-rules.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

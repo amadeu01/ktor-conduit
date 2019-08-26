@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fceef072-0b88-43c8-8643-847367084dd8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/custom-ktlint-rules/src/main/kotlin/rules/NoVarRule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt$module$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt$module$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt$module$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt$module$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt$module$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt$module$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/ApplicationKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/MyJWT.class" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/classes/kotlin/main/dev/amadeu/MyJWT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/distributions/conduit-0.0.1.tar" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/distributions/conduit-0.0.1.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/distributions/conduit-0.0.1.zip" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/distributions/conduit-0.0.1.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/kotlin/compileTestKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/kotlin/compileTestKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/libs/conduit-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/libs/conduit-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/reports/tests/test/classes/dev.amadeu.ApplicationTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/reports/tests/test/classes/dev.amadeu.ApplicationTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/reports/tests/test/classes/dev.amadeu.SwaggerRoutesTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/reports/tests/test/classes/dev.amadeu.SwaggerRoutesTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/reports/tests/test/packages/dev.amadeu.html" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/reports/tests/test/packages/dev.amadeu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/test-results/test/TEST-dev.amadeu.ApplicationTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/test-results/test/TEST-dev.amadeu.ApplicationTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/test-results/test/TEST-dev.amadeu.SwaggerRoutesTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/test-results/test/TEST-dev.amadeu.SwaggerRoutesTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conduit/src/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/conduit/src/Application.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-ktlint-rules/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/custom-ktlint-rules/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-ktlint-rules/src/main/CustomRuleSetProvider.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom-ktlint-rules/src/main/NoInternalImportRule.kt" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Gradle Kotlin DSL Settings" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1PkjMA1LjxvnniQeCMwZ2MrWyqf" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev.amadeu.ApplicationKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="conduit-ktor.conduit.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="dev.amadeu.ApplicationKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.dev.amadeu.ApplicationKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fceef072-0b88-43c8-8643-847367084dd8" name="Default Changelist" comment="" />
+      <created>1566424937436</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566424937436</updated>
+      <workItem from="1566424946446" duration="1208000" />
+      <workItem from="1566426666645" duration="853000" />
+      <workItem from="1566427549819" duration="29000" />
+      <workItem from="1566427606008" duration="3600000" />
+      <workItem from="1566827586529" duration="2346000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

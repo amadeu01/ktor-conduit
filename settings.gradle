@@ -1,1 +1,3 @@
-rootProject.name = "conduit"
+rootProject.name = 'conduit'
+include 'conduit'
+include 'custom-ktlint-rules'
